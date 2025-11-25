@@ -50,4 +50,18 @@
 * build可以生产两种不同格式的容器
    *  SIF（Singularity Image File）：压缩后的只读的Singularity镜像文件，是生产使用的主要形式。确保了容器的可复现性和验证性。
    * Sandbox ：可写的容器存在形式，是文件系统中的一个目录，常用于开发或者创建自己的容器，是开发使用的主要形式。
+* 两种容器格式之间的转换
+   * sif 转 sandbox（只读 → 可写）
+
+           #这会创建一个名为 my_sandbox 的目录，您可以在里面自由安装软件、修改配置。
+           # 将只读的 .sif 文件转换为可写的沙盒目录
+           singularity build --sandbox ./my_sandbox/ ubuntu.sif
+   * sandbox 转 sif
+ 
+           #将定制好的环境固化为一个便携的、不可变的镜像文件，便于分发和部署。
+           # 将沙盒目录打包回只读的 .sif 文件
+           singularity build final_container.sif ./my_sandbox/
+           
+
+
 
