@@ -69,6 +69,13 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
 * 配方固化 - 将成功配置写入Definition File
 * 最终构建 - 一次性生成生产就绪的SIF镜像
 这种流程既保证了开发调试的灵活性，又确保了最终镜像的稳定性和可复现性。
+#### 构建定制化容器——OFF-PEAK
+##### （1）Sandbox 实验阶段
+* sif 转 sandbox
+
+        singularity build --sandbox ./ubuntu_sandbox/ ubuntu.sif 
+        
+  
 
 
            
