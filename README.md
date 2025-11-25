@@ -25,3 +25,21 @@
 
         singularity --version
         singularity exec library://ubuntu echo "Hello World!"
+## 三、 实战：核心操作入门
+### 1. 拉取镜像：从云端库获取现成的容器
+    singularity pull library://sylabsed/examples/lolcow
+    singularity pull ubuntu.sif library://ubuntu
+### 2. 运行容器：执行容器默认的程序
+运行命令后，终端会显示一幅由字符组成的牛形图案，并附带一条随机的幽默名言或笑话。
+    singularity run lolcow_latest.sif
+### 3.交互模式：进入容器内部进行操作
+本例演示如何进入一个只读的 .sif 容器镜像并进行探查。此类操作不会改变容器本身，适用于运行稳定、可复现的任务。
+    #进入容器内部
+    singularity shell ubuntu.sif
+    # 检查容器内的系统信息
+    Singularity> cat /etc/os-release
+    #查看磁盘空间
+    Singularity> df -h
+    #退出容器
+    Singularity> exit
+### 4.绑定目录：在容器中访问主机上的文件
