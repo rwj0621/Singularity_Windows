@@ -25,3 +25,4 @@
 * 验证安装
 
         singularity --version
+        singularity exec library://ubuntu echo "Hello World!"
