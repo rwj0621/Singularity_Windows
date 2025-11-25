@@ -10,3 +10,18 @@
 * 执行命令启动 WSL：
 
         wsl
+### 2. 安装 SingularityCE
+在 WSL 环境中执行以下步骤：
+* 进入家目录
+  
+          cd ~
+* 检查当前路径（确认在正确位置）
+  
+          pwd  # 应该显示 /home/username
+* 下载并安装 SingularityCE
+    
+          wget https://github.com/sylabs/singularity/releases/download/v4.0.0/singularity-ce_4.0.0-jammy_amd64.deb
+          sudo apt install ./singularity-ce_4.0.0-jammy_amd64.deb
+* 验证安装
+
+        singularity --version
