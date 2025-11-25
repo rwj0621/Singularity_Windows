@@ -5,6 +5,7 @@
 ## 二、安装Singularity
 官方文档[Singularity 快速入门指南](https://docs.sylabs.io/guides/main/user-guide/quick_start.html)
 ### 1. 启动 Windows Subsystem for Linux (WSL)
+ [Windows 系统安装说明](https://docs.sylabs.io/guides/main/admin-guide/installation.html#windows)
 * 以管理员身份运行PowerShell
 * 执行命令启动 WSL：
 
