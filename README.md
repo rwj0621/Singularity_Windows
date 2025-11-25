@@ -147,7 +147,11 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
 ##### （1）Sandbox 实验阶段
 * **sif 转 sandbox**  通过以下命令，将只读的 ubuntu.sif 镜像转换为一个名为 ubuntu_sandbox 的可写目录，以便在容器内自由安装软件或修改配置。
 
-        singularity build --sandbox ./ubuntu_sandbox/ ubuntu.sif 
+        singularity build --sandbox ./ubuntu_sandbox/ ubuntu.sif
+* **进入可写的沙盒环境** 通过以下命令，以可写模式启动一个交互式 Shell，进入之前构建的 ubuntu_sandbox 沙盒容器，允许您直接在其中安装软件或修改文件。
+
+        singularity shell --writable ./ubuntu_sandbox/
+        
         
         
   
