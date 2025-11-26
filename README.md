@@ -194,7 +194,7 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
         Singularity> apt-get update
         Singularity> apt-get install -y --no-install-recommends r-base r-base-dev r-base-core
 * **问题：** 版本冲突
-* ** 解决方案：**  通过conda安装
+* **解决方案：** 通过conda安装
     * **清除R仓库配置**
         
             #删除R仓库配置
