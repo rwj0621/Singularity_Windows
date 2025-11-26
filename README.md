@@ -151,11 +151,10 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
             #设置官方源（备用，低优先级）
             Singularity> conda config --add channels defaults
             Singularity> conda config --add channels conda-forge
-            Singularity> conda config --add channels bioconda
-
+            Singularity> conda config --add channels bioconda 
+    * **安装特定版本的R和包**
 
             
-    * **安装特定版本的R和包**
     
 
   
