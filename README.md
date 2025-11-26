@@ -152,9 +152,22 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
 
         singularity shell --writable ./ubuntu_sandbox/
 * **基础系统配置**
-    * **设置环境变量** 告诉 apt 工具以非交互模式运行
+    * **设置环境变量** 告诉 apt 工具以非交互模式运行，安装过程中不会弹出任何需要用户输入的对话框（如时区选择、服务配置等），实现全自动安装
  
             Singularity> export DEBIAN_FRONTEND=noninteractive
+    * **设置语言环境** 设置系统语言和字符编码为 C.UTF-8，避免因语言环境导致的警告信息，确保命令行输出稳定一致
+
+            Singularity> export LANG=C.UTF-8 LC_ALL=C.UTF-8
+ 
+    * **替换软件源** 将 Ubuntu 官方软件源替换为阿里云镜像源，在国内网络环境下获得更快的下载速度
+ 
+            Singularity> sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+            Singularity> sed -i 's/security.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+    * **刷新软件包列表缓存**   获取当前所有可用软件包的最新版本信息和依赖关系，为后续的 apt-get install 命令提供准确的软件包数据库
+ 
+            Singularity> apt-get update
+
+  
         
         
         
