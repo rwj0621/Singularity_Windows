@@ -193,9 +193,10 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
         Singularity> echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" | tee -a /etc/apt/sources.list.d/r-project.list
         Singularity> apt-get update
         Singularity> apt-get install -y --no-install-recommends r-base r-base-dev r-base-core
-* **问题：**版本冲突
-* ** 解决方案：** 通过conda安装
-    * ** 清除R仓库配置
+* **问题：** 版本冲突
+* ** 解决方案：**  通过conda安装
+    * **清除R仓库配置**
+        
             #删除R仓库配置
             Singularity> rm -f /etc/apt/sources.list.d/r-project.list
             #删除密钥文件
