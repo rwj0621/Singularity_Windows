@@ -151,6 +151,10 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
 * **进入可写的沙盒环境** 通过以下命令，以可写模式启动一个交互式 Shell，进入之前构建的 ubuntu_sandbox 沙盒容器，允许您直接在其中安装软件或修改文件。
 
         singularity shell --writable ./ubuntu_sandbox/
+* **基础系统配置**
+    * **设置环境变量** 告诉 apt 工具以非交互模式运行
+ 
+            Singularity> export DEBIAN_FRONTEND=noninteractive
         
         
         
