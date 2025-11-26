@@ -175,8 +175,34 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
        python3 python3-pip bedtools
     * **问题：** 容器内部权限问题。在 Singularity 容器内部安装软件需要容器内的 root 权限，而非宿主系统的 sudo 权限。
     * **解决方案：** 通过 --fakeroot 在容器内模拟 root 权限，使您能够在可写模式下执行软件安装等需要特权的操作。
-      
+ 
+            #退出容器
+            exit
+            #重新进入
             singularity shell --fakeroot --writable ./sandbox/
+    * **验证安装**
+
+            # 测试安装的软件是否可用
+            Singularity> g++ --version
+            Singularity> python3 --version  
+            Singularity> bedtools --version
+            Singularity> which curl wget git
+* **安装R环境**
+
+        Singularity> wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | gpg --dearmor -o /usr/share/keyrings/r-project.gpg
+        Singularity> echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" | tee -a /etc/apt/sources.list.d/r-project.list
+        Singularity> apt-get update
+        Singularity> apt-get install -y --no-install-recommends r-base r-base-dev r-base-core
+* **问题：**版本冲突
+* ** 解决方案：** 通过conda安装
+    * ** 清除R仓库配置
+            #删除R仓库配置
+            Singularity> rm -f /etc/apt/sources.list.d/r-project.list
+            #删除密钥文件
+            Singularity> rm -f /usr/share/keyrings/r-project.gpg
+            #清理APT缓存
+            Singularity> apt-get update
+    
 
   
         
