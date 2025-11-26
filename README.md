@@ -99,6 +99,8 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
        build-essential \
        zlib1g-dev libcurl4-openssl-dev libssl-dev libxml2-dev libpng-dev \
        python3 python3-pip bedtools
+       # 单独安装 gfortran，通过安装 gfortran 包来获得 Fortran 编译器。
+       Singularity> apt-get install -y gfortran
     * **问题：** 容器内部权限问题。在 Singularity 容器内部安装软件需要容器内的 root 权限，而非宿主系统的 sudo 权限。
     * **解决方案：** 通过 --fakeroot 在容器内模拟 root 权限，使您能够在可写模式下执行软件安装等需要特权的操作。
  
@@ -113,6 +115,8 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
             Singularity> python3 --version  
             Singularity> bedtools --version
             Singularity> which curl wget git
+            Singularity> gfortran --version
+           
 * **安装R环境**
 
         Singularity> wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | gpg --dearmor -o /usr/share/keyrings/r-project.gpg
@@ -136,6 +140,18 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
             Singularity> rm miniconda.sh
             Singularity> export PATH="/opt/conda/bin:$PATH"
     * **配置conda渠道**
+ 
+            # 设置清华镜像源（最高优先级）
+            Singularity> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+            Singularity> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+            Singularity> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+            Singularity> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+            Singularity> conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+
+            #设置官方源（备用，低优先级）
+            Singularity> conda config --add channels defaults
+            Singularity> conda config --add channels conda-forge
+            Singularity> conda config --add channels bioconda
 
 
             
