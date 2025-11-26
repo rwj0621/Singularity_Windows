@@ -169,10 +169,10 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
 * **安装系统工具**
 
        Singularity> apt-get install -y --no-install-recommends \
-    ca-certificates wget curl gnupg2 software-properties-common \
-    build-essential \
-    zlib1g-dev libcurl4-openssl-dev libssl-dev libxml2-dev libpng-dev \
-    python3 python3-pip bedtools
+       ca-certificates wget curl gnupg2 software-properties-common \
+       build-essential \
+       zlib1g-dev libcurl4-openssl-dev libssl-dev libxml2-dev libpng-dev \
+       python3 python3-pip bedtools
 
   
         
