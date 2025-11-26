@@ -174,7 +174,7 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
        zlib1g-dev libcurl4-openssl-dev libssl-dev libxml2-dev libpng-dev \
        python3 python3-pip bedtools
     * **问题：** 容器内部权限问题。在 Singularity 容器内部安装软件需要容器内的 root 权限，而非宿主系统的 sudo 权限。
-    * **解决方案：**通过 --fakeroot 在容器内模拟 root 权限，使您能够在可写模式下执行软件安装等需要特权的操作。
+    * **解决方案：** 通过 --fakeroot 在容器内模拟 root 权限，使您能够在可写模式下执行软件安装等需要特权的操作。
       
             singularity shell --fakeroot --writable ./sandbox/
 
