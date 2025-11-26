@@ -131,11 +131,14 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
             Singularity> apt-get update
     * **安装Miniconda**
 
-              Singularity> wget https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-x86_64.sh -O miniconda.sh
-              Singularity> bash miniconda.sh -b -p /opt/conda
-              Singularity> rm miniconda.sh
-              Singularity> export PATH="/opt/conda/bin:$PATH"
+            Singularity> wget https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-x86_64.sh -O miniconda.sh
+            Singularity> bash miniconda.sh -b -p /opt/conda
+            Singularity> rm miniconda.sh
+            Singularity> export PATH="/opt/conda/bin:$PATH"
     * **配置conda渠道**
+
+
+            
     * **安装特定版本的R和包**
     
 
