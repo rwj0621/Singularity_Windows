@@ -166,6 +166,13 @@ Singularity采用单次构建机制，相比Docker的分层缓存构建，在调
     * **刷新软件包列表缓存**   获取当前所有可用软件包的最新版本信息和依赖关系，为后续的 apt-get install 命令提供准确的软件包数据库
  
             Singularity> apt-get update
+* **安装系统工具**
+
+       Singularity> apt-get install -y --no-install-recommends \
+    ca-certificates wget curl gnupg2 software-properties-common \
+    build-essential \
+    zlib1g-dev libcurl4-openssl-dev libssl-dev libxml2-dev libpng-dev \
+    python3 python3-pip bedtools
 
   
         
